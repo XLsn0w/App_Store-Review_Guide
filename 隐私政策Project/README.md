@@ -16,31 +16,25 @@ iOS关于隐私政策新的公告
 所以，在此提醒各位开发者：提交App Store 审核前一定要准备自己的隐私权政策，并在app SafariViewContoller中弹出，否则会无法通过审核哦！ 范本提供：为便于一些开发者准备隐私权政策的条款，我们已起草了一份隐私权政策的中文版本，开发者可根据自己的业务场景进行修改，点击可下载隐私权政策范本 苹果隐私条款。
 
 
-#import "ViewController.h"
+2018.9.26
+
+使用SafariViewContoller
+// 导入SafariServices.h
 #import <SafariServices/SafariServices.h>
-
-@interface ViewController () <SFSafariViewControllerDelegate>
-
+// 设置代理
+@interface VC1 ()<SFSafariViewControllerDelegate>
 @end
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-[super viewDidLoad];
-// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (IBAction)push:(id)sender {
+// 点击使用
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //   输入项目的隐私政策的 URL
-SFSafariViewController *sfVC = [[SFSafariViewController alloc]initWithURL:[NSURL URLWithString:@"https://map.baidu.com/zt/client/privacy/index.html"]];
+SFSafariViewController *sfVC = [[SFSafariViewController alloc]initWithURL:[NSURL URLWithString:@"https://www.baidu.com/#privacy"]];
 sfVC.delegate = self;
-[self presentViewController:sfVC animated:YES completion:nil];
+[self.navigationController presentViewController:sfVC animated:YES completion:nil];
 }
 
 ###  pragma mark - SFSafariViewControllerDelegate -
 - (void)safariViewControllerDidFinish:(SFSafariViewController *)controller{
 NSLog(@"点击done");
 }
-
 
 

@@ -28,9 +28,8 @@
 }
 
 #  pragma mark - SFSafariViewControllerDelegate -
-- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller{
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
     NSLog(@"点击done");
 }
-
 
 @end
